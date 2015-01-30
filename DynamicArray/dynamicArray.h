@@ -6,7 +6,7 @@ class DynamicArray
 {
 
 public:
-
+	int getCapacite();
 
 
 private:
