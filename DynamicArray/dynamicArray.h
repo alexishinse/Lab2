@@ -1,12 +1,14 @@
 #ifndef DYNAMICARRAY_H_
 #define DYNAMICARRAY_H_
 
+#include <iostream>
 
 class DynamicArray
 {
 
 public:
-	int getCapacite();
+	unsigned int getCapacite();
+	int getElement(unsigned int _index);
 
 
 private:
