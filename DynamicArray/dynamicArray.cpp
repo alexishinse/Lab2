@@ -12,6 +12,16 @@ DynamicArray::DynamicArray(){
 	capacite = 100;
 }
 
+DynamicArray::DynamicArray(const DynamicArray & _source){
+	capacite = _source.getCapacite();
+	
+	tabElements = new int[capacite];
+
+	for (unsigned int i = 0; i < capacite; i++){
+		tabElements[i] = _source.getElement(i);
+	}
+}
+
 DynamicArray::DynamicArray(unsigned int _capacite){
 	
 	if (_capacite < 1) throw std::invalid_argument("La capacite doit etre supperieur a 0");
@@ -29,11 +39,11 @@ DynamicArray::~DynamicArray(){
 	delete[] tabElements;
 }
 
-unsigned int DynamicArray::getCapacite() {
+unsigned int DynamicArray::getCapacite() const {
 	return capacite;
 }
 
-int DynamicArray::getElement(unsigned int _index) {
+int DynamicArray::getElement(unsigned int _index) const{
 	if (_index > capacite - 1) throw std::out_of_range("L'index doit se retrouver à l'intérieur du tableau");
 	return tabElements[_index];
 }
