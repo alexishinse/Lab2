@@ -12,6 +12,20 @@ DynamicArray::DynamicArray(){
 	capacite = 100;
 }
 
+bool DynamicArray::operator==(const DynamicArray & _source){
+	bool identique = true;
+
+	if (capacite == _source.capacite){
+		for (unsigned int i = 0; i < capacite; i++){
+			if (tabElements[i] != _source.tabElements[i]) identique = false;
+		}
+	}
+	else{
+		identique = false;
+	}
+	return identique;
+}
+
 DynamicArray& DynamicArray::operator=(const DynamicArray & _source){
 	if (&_source != this){
 		delete[] tabElements;
