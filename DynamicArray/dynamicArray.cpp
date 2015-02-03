@@ -17,7 +17,7 @@ bool DynamicArray::operator==(const DynamicArray & _source){
 
 	if (capacite == _source.capacite){
 		for (unsigned int i = 0; i < capacite; i++){
-			if (tabElements[i] != _source.tabElements[i]) identique = false;
+			if (tabElements[i] != _source.getElement(i)) identique = false;
 		}
 	}
 	else{
@@ -33,7 +33,7 @@ DynamicArray& DynamicArray::operator=(const DynamicArray & _source){
 		tabElements = new int[capacite];
 
 		for (unsigned int i = 0; i < capacite; i++){
-			tabElements[i] = _source.tabElements[i];
+			tabElements[i] = _source.getElement(i);
 		}
 	}
 	return *this;
@@ -45,7 +45,7 @@ DynamicArray& DynamicArray::operator+=(const DynamicArray & _source){
 	setCapacite(ancienneCapacite + _source.getCapacite());
 
 	for (unsigned int i = ancienneCapacite; i < (ancienneCapacite + _source.getCapacite()); i++){
-		tabElements[i] = _source.tabElements[i - ancienneCapacite];
+		tabElements[i] = _source.getElement(i - ancienneCapacite);
 	}
 	return *this;
 }
