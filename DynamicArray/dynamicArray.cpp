@@ -39,6 +39,17 @@ DynamicArray& DynamicArray::operator=(const DynamicArray & _source){
 	return *this;
 }
 
+DynamicArray& DynamicArray::operator+=(const DynamicArray & _source){
+	unsigned int ancienneCapacite = capacite;
+
+	setCapacite(ancienneCapacite + _source.getCapacite());
+
+	for (unsigned int i = ancienneCapacite; i < (ancienneCapacite + _source.getCapacite()); i++){
+		tabElements[i] = _source.tabElements[i - ancienneCapacite];
+	}
+	return *this;
+}
+
 DynamicArray::DynamicArray(const DynamicArray & _source){
 	capacite = _source.getCapacite();
 	
