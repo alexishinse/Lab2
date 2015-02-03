@@ -10,8 +10,8 @@ public:
 	DynamicArray();
 	DynamicArray(unsigned int _capacite);
 	~DynamicArray();
-	unsigned int getCapacite() const;
-	int getElement(unsigned int _index) const;
+	unsigned int getCapacite();
+	int getElement(unsigned int _index);
 	void setElement(unsigned int _index, int _valeur);
 	void setCapacite(unsigned int _capacite);
 

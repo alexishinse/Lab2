@@ -1,5 +1,5 @@
 #include <iostream>
 
-void main(){
+void main(int argc, char* argv[]){
 
 }
