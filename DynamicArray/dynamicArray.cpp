@@ -20,11 +20,15 @@ DynamicArray::DynamicArray(unsigned int _capacite){
 	capacite = _capacite;
 }
 
-unsigned int DynamicArray::getCapacite(){
+DynamicArray::~DynamicArray(){
+	delete[] tabElements;
+}
+
+unsigned int DynamicArray::getCapacite() const{
 	return capacite;
 }
 
-int DynamicArray::getElement(unsigned int _index){
+int DynamicArray::getElement(unsigned int _index) const{
 	return tabElements[_index];
 }
 
@@ -33,12 +37,17 @@ void DynamicArray::setElement(unsigned int _index, int _valeur){
 }
 
 void DynamicArray::setCapacite(unsigned int _capacite){
-	int* conteneurTemp = tabElements;
-	tabElements = new int[_capacite];
+	int* conteneurTemp = new int [_capacite];
 
 	for (int i = 0; i < capacite; i++){
-		tabElements[i] = conteneurTemp[i];
+		conteneurTemp[i] = tabElements[i];
+	}
+
+	for (int i = capacite; i < _capacite; i++){
+		conteneurTemp[i] = 0;
 	}
 	
+	delete[] tabElements;
 	capacite = _capacite;
+	tabElements = conteneurTemp;
 }

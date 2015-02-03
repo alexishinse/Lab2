@@ -9,8 +9,9 @@ class DynamicArray
 public:
 	DynamicArray();
 	DynamicArray(unsigned int _capacite);
-	unsigned int getCapacite();
-	int getElement(unsigned int _index);
+	~DynamicArray();
+	unsigned int getCapacite() const;
+	int getElement(unsigned int _index) const;
 	void setElement(unsigned int _index, int _valeur);
 	void setCapacite(unsigned int _capacite);
 
