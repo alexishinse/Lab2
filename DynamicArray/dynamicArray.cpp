@@ -46,6 +46,9 @@ void DynamicArray::setElement(unsigned int _index, int _valeur){
 }
 
 void DynamicArray::setCapacite(unsigned int _capacite){
+	
+	if (_capacite < 1) throw std::invalid_argument("La capacite doit etre superieur a 0");
+
 	int* conteneurTemp = new int[_capacite];
 
 	for (unsigned int i = 0; i < _capacite; i++){
